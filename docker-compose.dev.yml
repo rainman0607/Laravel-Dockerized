@@ -1,0 +1,23 @@
+version: '2'
+services:
+    app:
+        build:
+            context: ./
+            dockerfile: deploy/app.dev.docker
+        volumes:
+            - ./:/var/www/
+        ports:
+            - "8080:80"
+        links:
+            - database
+        depends_on:
+            - database
+    database:
+        image: mysql:5.7.18
+        environment:
+            - "MYSQL_USER=laravel"
+            - "MYSQL_PASSWORD=secret"
+            - "MYSQL_ROOT_PASSWORD=secret"
+            - "MYSQL_DATABASE=dockerApp"
+        ports:
+            - "33061:3306"
