@@ -21,7 +21,7 @@ I felt this was a problem, so I decided to setup my own simple container with wh
  ``` bash
  docker-compose up -f docker-compose.dev.yml
  ```
-For Development - 
+## For Development - 
 Rather than rebuilding our images, We'll just mount the laravel application folder \
 ``` bash
 docker build -t application-name . -f deploy/app.dev.docker 
